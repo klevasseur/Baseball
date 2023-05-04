@@ -1,0 +1,509 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     12427,        500]
+NotebookOptionsPosition[      7824,        340]
+NotebookOutlinePosition[      8412,        363]
+CellTagsIndexPosition[      8334,        358]
+WindowFrame->Normal
+ContainsDynamic->True *)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["6.1", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->341476719],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["Exploring Baseball with\nRetrosheet and Mathematica",
+ 
+ BaseStyle->"Hyperlink",
+ ButtonData->{
+   URL["http://homepage.mac.com/klevasseur/erm/"], None}]], "Subtitle",
+ CellChangeTimes->{{3.422317614272869*^9, 3.422317667041342*^9}, {
+  3.422317706211988*^9, 3.422317717009963*^9}},
+ CellID->455132433],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["Baseball Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
+
+Cell["Baseball`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
+
+Cell["Baseball/ref/StartingPitchers", "Categorization",
+ CellLabel->"URI"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Synonyms", "SynonymsSection",
+ CellID->1427418553],
+
+Cell["XXXX", "Synonyms",
+ CellID->1251652828]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Example Status", "ExampleStatusSection",
+ CellContext->CellGroup,
+ CellID->411322409],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TooltipBox[
+   DynamicModuleBox[{$CellContext`exSum = False}, 
+    TagBox[
+     CheckboxBox[Dynamic[$CellContext`exSum = If[
+         DocuTools`ExampleStatusSummary[
+          EvaluationNotebook[]], True, False, $CellContext`exSum]], {False, 
+      True, Blank[]}],
+     EventHandlerTag[{
+      "MouseDown" -> Null, PassEventsDown -> Automatic, PassEventsUp -> 
+       True}]],
+    DynamicModuleValues:>{}],
+   "Automatic (non-interactive) summary of example status."]]],
+ " Releasable"
+}], "ExampleStatus",
+ CellLabel->"Releasable",
+ CellID->849528059],
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicModuleBox[{$CellContext`exStat = False}, 
+   CheckboxBox[Dynamic[DocuTools`ExampleStatus[
+       EvaluationNotebook[], 
+       "DQA"] = $CellContext`exStat, ($CellContext`exStat = #; 
+     DocuTools`ExampleStatusStamp[$CellContext`exStat])& ]],
+   DynamicModuleValues:>{}]]],
+ " ",
+ "unsigned:undated"
+}], "ExampleStatus",
+ CellLabel->"DQA Completed",
+ CellID->752182401],
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicModuleBox[{$CellContext`exStat = False}, 
+   CheckboxBox[Dynamic[DocuTools`ExampleStatus[
+       EvaluationNotebook[], 
+       "Authoring"] = $CellContext`exStat, ($CellContext`exStat = #; 
+     DocuTools`ExampleStatusStamp[$CellContext`exStat])& ]],
+   DynamicModuleValues:>{}]]],
+ " ",
+ "unsigned:undated"
+}], "ExampleStatus",
+ CellLabel->"Authoring Completed",
+ CellID->1133520534],
+
+Cell["", "ExampleStatus",
+ CellLabel->"Example Authors",
+ CellID->812784410],
+
+Cell["", "ExampleStatus",
+ CellLabel->"Comments",
+ CellID->2132773355]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers"],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["StartingPitchers", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ "StartingPitchers[game] return the player codes and names of the starting \
+pitchers of a game."
+}], "Usage"],
+
+Cell["XXXX", "Notes",
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox["ParkName",
+  BaseStyle->"Link"]], "InlineFormula"]], "SeeAlso",
+ CellChangeTimes->{{3.4223167368658457`*^9, 3.422316742018314*^9}},
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Extensions / Related Packages", "ExtensionsSection",
+ CellID->1760991299],
+
+Cell["XXXX", "Extensions",
+ CellID->361139339]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Design Discussion", "DesignDiscussionSection",
+ CellID->1775809863],
+
+Cell["XXXX", "DesignDiscussion",
+ CellID->308641435]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Application Notes", "ApplicationNotesSection",
+ CellID->1163590540],
+
+Cell["XXXX", "ApplicationNotes",
+ CellID->1480116198]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+FrontEndVersion->"6.0 for Mac OS X PowerPC (32-bit) (June 19, 2007)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[5961, 263, 100, 2, 53, "ExtendedExamplesSection",
+   CellTags->"ExtendedExamples",
+   CellID->1854448968]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 8196, 351}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[568, 21, 324, 14, 23, "History",
+ CellID->341476719],
+Cell[CellGroupData[{
+Cell[917, 39, 327, 7, 71, "Subtitle",
+ CellID->455132433],
+Cell[CellGroupData[{
+Cell[1269, 50, 68, 1, 27, "CategorizationSection",
+ CellID->1122911449],
+Cell[1340, 53, 79, 2, 70, "Categorization",
+ CellID->686433507],
+Cell[1422, 57, 89, 2, 70, "Categorization",
+ CellID->605800465],
+Cell[1514, 61, 78, 2, 70, "Categorization",
+ CellID->468444828],
+Cell[1595, 65, 74, 1, 70, "Categorization"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1706, 71, 56, 1, 17, "SynonymsSection",
+ CellID->1427418553],
+Cell[1765, 74, 45, 1, 70, "Synonyms",
+ CellID->1251652828]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1847, 80, 55, 1, 17, "KeywordsSection",
+ CellID->477174294],
+Cell[1905, 83, 45, 1, 70, "Keywords",
+ CellID->1164421360]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1987, 89, 91, 2, 17, "ExampleStatusSection",
+ CellID->411322409],
+Cell[2081, 93, 586, 17, 38, "ExampleStatus",
+ CellID->849528059],
+Cell[2670, 112, 411, 12, 38, "ExampleStatus",
+ CellID->752182401],
+Cell[3084, 126, 424, 12, 38, "ExampleStatus",
+ CellID->1133520534],
+Cell[3511, 140, 76, 2, 30, "ExampleStatus",
+ CellID->812784410],
+Cell[3590, 144, 70, 2, 30, "ExampleStatus",
+ CellID->2132773355]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3697, 151, 65, 1, 27, "TemplatesSection",
+ CellID->1872225408],
+Cell[3765, 154, 94, 2, 28, "Template",
+ CellID->1562036412],
+Cell[3862, 158, 82, 2, 28, "Template",
+ CellID->158391909],
+Cell[3947, 162, 81, 2, 28, "Template",
+ CellID->1360575930],
+Cell[4031, 166, 82, 2, 28, "Template",
+ CellID->793782254]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4150, 173, 33, 0, 17, "DetailsSection"],
+Cell[4186, 175, 49, 1, 30, "Details"],
+Cell[4238, 178, 47, 1, 30, "Details"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4322, 184, 59, 1, 62, "ObjectName",
+ CellID->1224892054],
+Cell[4384, 187, 151, 4, 55, "Usage"],
+Cell[4538, 193, 42, 1, 23, "Notes",
+ CellID->1067943069]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4617, 199, 57, 1, 43, "TutorialsSection",
+ CellID->250839057],
+Cell[4677, 202, 45, 1, 16, "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4759, 208, 83, 1, 30, "RelatedDemonstrationsSection",
+ CellID->1268215905],
+Cell[4845, 211, 58, 1, 16, "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+Cell[4918, 215, 65, 1, 30, "RelatedLinksSection",
+ CellID->1584193535],
+Cell[CellGroupData[{
+Cell[5008, 220, 55, 1, 30, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[5066, 223, 191, 4, 16, "SeeAlso",
+ CellID->929782353]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5294, 232, 57, 1, 30, "MoreAboutSection",
+ CellID->38303248],
+Cell[5354, 235, 46, 1, 16, "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5437, 241, 79, 1, 30, "ExtensionsSection",
+ CellID->1760991299],
+Cell[5519, 244, 46, 1, 16, "Extensions",
+ CellID->361139339]
+}, Open  ]],
+Cell[5580, 248, 356, 11, 70, "PrimaryExamplesSection",
+ CellID->880084151],
+Cell[CellGroupData[{
+Cell[5961, 263, 100, 2, 53, "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+Cell[6064, 267, 125, 3, 31, "ExampleSection",
+ CellID->1293636265],
+Cell[6192, 272, 148, 3, 19, "ExampleSection",
+ CellID->1020263627],
+Cell[CellGroupData[{
+Cell[6365, 279, 127, 3, 19, "ExampleSection",
+ CellID->2061341341],
+Cell[6495, 284, 130, 3, 70, "ExampleSubsection",
+ CellID->1757724783],
+Cell[6628, 289, 130, 3, 70, "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+Cell[6773, 295, 131, 3, 19, "ExampleSection",
+ CellID->258228157],
+Cell[6907, 300, 142, 3, 19, "ExampleSection",
+ CellID->2123667759],
+Cell[7052, 305, 135, 3, 19, "ExampleSection",
+ CellID->1305812373],
+Cell[7190, 310, 140, 3, 19, "ExampleSection",
+ CellID->1653164318],
+Cell[7333, 315, 132, 3, 19, "ExampleSection",
+ CellID->589267740]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7502, 323, 73, 1, 78, "DesignDiscussionSection",
+ CellID->1775809863],
+Cell[7578, 326, 52, 1, 16, "DesignDiscussion",
+ CellID->308641435]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7667, 332, 73, 1, 30, "ApplicationNotesSection",
+ CellID->1163590540],
+Cell[7743, 335, 53, 1, 16, "ApplicationNotes",
+ CellID->1480116198]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

@@ -1,0 +1,2277 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     83896,       2268]
+NotebookOptionsPosition[     82065,       2196]
+NotebookOutlinePosition[     82403,       2211]
+CellTagsIndexPosition[     82360,       2208]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ StyleBox["PitchCallTotals", "Input"],
+ " has been added and produces some interesting observations on umpires. \
+Let's look at the pitch calls form the Red Sox' first game of 2007."
+}], "Text",
+ CellChangeTimes->{{3.45177229228881*^9, 3.451772316253255*^9}, {
+  3.451772441839941*^9, 3.451772467736518*^9}},
+ CellID->1141514380],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PitchCallTotals", "[", 
+  RowBox[{"First", "[", 
+   RowBox[{"AllEvents", "[", 
+    RowBox[{"\"\<BOS\>\"", ",", "2007"}], "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.4517719122077513`*^9, 3.451771923723404*^9}, {
+  3.451772330640553*^9, 3.451772346808249*^9}},
+ CellID->1565452218],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{"56", ",", "102", ",", "123"}], "}"}], TraditionalForm]], "Output",\
+
+ CellChangeTimes->{3.451772348414517*^9},
+ CellID->1960766009]
+}, Open  ]],
+
+Cell["\<\
+Tim Tschida called 56 strikes, 102 balls and 123 pitches needed no call \
+(including intentional balls)\
+\>", "Text",
+ CellChangeTimes->{{3.4517723831059113`*^9, 3.4517724341120853`*^9}},
+ CellID->2103491200],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"HomePlateUmpire", "[", 
+  RowBox[{"First", "[", 
+   RowBox[{"AllEvents", "[", 
+    RowBox[{"\"\<BOS\>\"", ",", "2007"}], "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.451772355147917*^9, 3.451772372439396*^9}},
+ CellID->1457750048],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{"\<\"tscht901\"\>", ",", "\<\"Tim Tschida\"\>"}], "}"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.451772374304405*^9, 3.451773034505238*^9},
+ CellID->1982128421]
+}, Open  ]],
+
+Cell["\<\
+Lets compute something more ambitious.  First lets identify all home plate \
+umpire codes in 2007.\
+\>", "Text",
+ CellChangeTimes->{{3.451772510360585*^9, 3.451772555665473*^9}, {
+  3.451773086524447*^9, 3.4517730947633457`*^9}, {3.4517731574283133`*^9, 
+  3.4517731593723507`*^9}},
+ CellID->1500801486],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"umps", "=", 
+  RowBox[{
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"HomePlateUmpire", "[", "#", "]"}], "//", "First"}], ")"}], 
+      "&"}], ",", 
+     RowBox[{"GameLogs", "[", "2007", "]"}]}], "]"}], "//", 
+   "Union"}]}]], "Input",
+ CellChangeTimes->{{3.451773097212598*^9, 3.4517732505162697`*^9}},
+ CellID->1866039483],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{"\<\"barkl901\"\>", ",", "\<\"barrs901\"\>", 
+    ",", "\<\"barrt901\"\>", ",", "\<\"bellw901\"\>", ",", "\<\"buckc901\"\>",
+     ",", "\<\"campa902\"\>", ",", "\<\"carlm901\"\>", 
+    ",", "\<\"cedeg901\"\>", ",", "\<\"coope901\"\>", ",", "\<\"cousd901\"\>",
+     ",", "\<\"crawj901\"\>", ",", "\<\"culbf901\"\>", 
+    ",", "\<\"cuzzp901\"\>", ",", "\<\"danlk901\"\>", ",", "\<\"darlg901\"\>",
+     ",", "\<\"davib902\"\>", ",", "\<\"davig901\"\>", 
+    ",", "\<\"delld901\"\>", ",", "\<\"demud901\"\>", ",", "\<\"diazl901\"\>",
+     ",", "\<\"dimum901\"\>", ",", "\<\"dowda901\"\>", 
+    ",", "\<\"drakr901\"\>", ",", "\<\"drecb901\"\>", ",", "\<\"eddid901\"\>",
+     ",", "\<\"emmep901\"\>", ",", "\<\"estam901\"\>", 
+    ",", "\<\"everm901\"\>", ",", "\<\"fairc901\"\>", ",", "\<\"fleta901\"\>",
+     ",", "\<\"fostm901\"\>", ",", "\<\"froeb901\"\>", 
+    ",", "\<\"fullt901\"\>", ",", "\<\"gibsg901\"\>", ",", "\<\"gormb901\"\>",
+     ",", "\<\"guccc901\"\>", ",", "\<\"hallt901\"\>", 
+    ",", "\<\"herna901\"\>", ",", "\<\"hicke901\"\>", ",", "\<\"hirsj901\"\>",
+     ",", "\<\"hohnb901\"\>", ",", "\<\"holbs901\"\>", 
+    ",", "\<\"hoyej901\"\>", ",", "\<\"hudsm901\"\>", ",", "\<\"iassd901\"\>",
+     ",", "\<\"johna901\"\>", ",", "\<\"joycj901\"\>", 
+    ",", "\<\"kellj901\"\>", ",", "\<\"knigb901\"\>", ",", "\<\"kulpr901\"\>",
+     ",", "\<\"laynj901\"\>", ",", "\<\"marqa901\"\>", 
+    ",", "\<\"marsr901\"\>", ",", "\<\"mcclt901\"\>", ",", "\<\"mealj901\"\>",
+     ",", "\<\"meric901\"\>", ",", "\<\"millb901\"\>", 
+    ",", "\<\"monte901\"\>", ",", "\<\"muchm901\"\>", ",", "\<\"nauep901\"\>",
+     ",", "\<\"nelsj901\"\>", ",", "\<\"onorb901\"\>", 
+    ",", "\<\"poncl901\"\>", ",", "\<\"randt901\"\>", ",", "\<\"rapue901\"\>",
+     ",", "\<\"reedr901\"\>", ",", "\<\"reilm901\"\>", 
+    ",", "\<\"reint901\"\>", ",", "\<\"relic901\"\>", ",", "\<\"reynj901\"\>",
+     ",", "\<\"rungb901\"\>", ",", "\<\"schrp901\"\>", 
+    ",", "\<\"scotd901\"\>", ",", "\<\"ticht901\"\>", ",", "\<\"timmt901\"\>",
+     ",", "\<\"tscht901\"\>", ",", "\<\"vanol901\"\>", 
+    ",", "\<\"wegnm901\"\>", ",", "\<\"welkb901\"\>", ",", "\<\"welkt901\"\>",
+     ",", "\<\"wendh902\"\>", ",", "\<\"westj901\"\>", 
+    ",", "\<\"wintm901\"\>", ",", "\<\"wolfj901\"\>", 
+    ",", "\<\"younl901\"\>"}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.451773139053808*^9, {3.45177317525385*^9, 3.45177325150074*^9}},
+ CellID->626848919]
+}, Open  ]],
+
+Cell["\<\
+Now combine all of the regular season games from 2007 into one list.\
+\>", "Text",
+ CellChangeTimes->{{3.4518091534593678`*^9, 3.451809185270033*^9}},
+ CellID->654308205],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Season2007", "=", 
+   RowBox[{"Union", "@@", 
+    RowBox[{"Map", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Events", "[", 
+        RowBox[{"#", ",", "2007"}], "]"}], "&"}], ",", 
+      RowBox[{
+       RowBox[{"TeamCodeListBasic", "[", "2007", "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "1"}], "]"}], "]"}]}], "]"}]}]}], ";"}]], "Input",\
+
+ CellChangeTimes->{{3.4517734079489813`*^9, 3.451773457256198*^9}, 
+   3.451773579301469*^9},
+ CellID->2042493098],
+
+Cell["\<\
+This next expression takes some time to evaluate.  In it, we partition the \
+games according to homeplate umpire and then add up the pitch calls for each \
+umpire.  The numbers are not so informative, but the graphical display  below \
+is interesting.\
+\>", "Text",
+ CellChangeTimes->{{3.451809190510202*^9, 3.4518093391357594`*^9}},
+ CellID->1841728795],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"umpireCalls2007", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"HomePlateUmpire", "[", 
+        RowBox[{"First", "[", "#", "]"}], "]"}], ",", 
+       RowBox[{"Total", "[", 
+        RowBox[{"Map", "[", 
+         RowBox[{"PitchCallTotals", ",", "#"}], "]"}], "]"}]}], "}"}], "&"}], 
+    ",", 
+    RowBox[{"SplitBy", "[", 
+     RowBox[{
+      RowBox[{"SortBy", "[", 
+       RowBox[{"Season2007", ",", 
+        RowBox[{
+         RowBox[{"HomePlateUmpire", "[", "#", "]"}], "&"}]}], "]"}], ",", 
+      RowBox[{
+       RowBox[{"HomePlateUmpire", "[", "#", "]"}], "&"}]}], "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.4517736118915358`*^9, 3.451773826952115*^9}, {
+  3.4517738998117237`*^9, 3.451774006548149*^9}, {3.451774037904545*^9, 
+  3.451774063656435*^9}, {3.451774100153193*^9, 3.45177413183519*^9}},
+ CellID->239847568],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"barkl901\"\>", ",", "\<\"Lance Barksdale\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1737", ",", "3863", ",", "4680"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"barrs901\"\>", ",", "\<\"Scott Barry\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"366", ",", "1031", ",", "1131"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"barrt901\"\>", ",", "\<\"Ted Barrett\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1789", ",", "3714", ",", "4650"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"bellw901\"\>", ",", "\<\"Wally Bell\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1695", ",", "3621", ",", "4513"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"buckc901\"\>", ",", "\<\"CB Bucknor\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1749", ",", "3789", ",", "4486"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"campa902\"\>", ",", "\<\"Angel Campos\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"285", ",", "670", ",", "868"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"carlm901\"\>", ",", "\<\"Mark Carlson\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1733", ",", "3727", ",", "4686"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"cedeg901\"\>", ",", "\<\"Gary Cederstrom\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1689", ",", "3393", ",", "4308"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"coope901\"\>", ",", "\<\"Eric Cooper\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1590", ",", "3358", ",", "4248"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"cousd901\"\>", ",", "\<\"Derryl Cousins\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1652", ",", "3580", ",", "4405"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"crawj901\"\>", ",", "\<\"Jerry Crawford\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"772", ",", "1776", ",", "2087"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"culbf901\"\>", ",", "\<\"Fieldin Culbreth\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1636", ",", "3655", ",", "4543"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"cuzzp901\"\>", ",", "\<\"Phil Cuzzi\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1791", ",", "3666", ",", "4585"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"danlk901\"\>", ",", "\<\"Kerwin Danley\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1656", ",", "3619", ",", "4568"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"darlg901\"\>", ",", "\<\"Gary Darling\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1678", ",", "3526", ",", "4420"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"davib902\"\>", ",", "\<\"Bob Davidson\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1809", ",", "3697", ",", "4579"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"davig901\"\>", ",", "\<\"Gerry Davis\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1692", ",", "4044", ",", "4835"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"delld901\"\>", ",", "\<\"Dusty Dellinger\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"50", ",", "93", ",", "114"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"demud901\"\>", ",", "\<\"Dana DeMuth\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1746", ",", "3950", ",", "4686"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"diazl901\"\>", ",", "\<\"Laz Diaz\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1861", ",", "3695", ",", "4916"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"dimum901\"\>", ",", "\<\"Mike DiMuro\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"464", ",", "947", ",", "1187"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"dowda901\"\>", ",", "\<\"Adam Dowdy\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1404", ",", "2952", ",", "3676"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"drakr901\"\>", ",", "\<\"Rob Drake\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1761", ",", "3878", ",", "4726"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"drecb901\"\>", ",", "\<\"Bruce Dreckman\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1605", ",", "3288", ",", "4044"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"eddid901\"\>", ",", "\<\"Doug Eddings\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1905", ",", "3369", ",", "4582"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"emmep901\"\>", ",", "\<\"Paul Emmel\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1564", ",", "3082", ",", "3804"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"estam901\"\>", ",", "\<\"Mike Estabrook\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"147", ",", "315", ",", "433"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"everm901\"\>", ",", "\<\"Mike Everitt\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1695", ",", "3525", ",", "4403"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"fairc901\"\>", ",", "\<\"Chad Fairchild\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1451", ",", "3157", ",", "3877"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"fleta901\"\>", ",", "\<\"Andy Fletcher\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"889", ",", "1845", ",", "2426"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"fostm901\"\>", ",", "\<\"Marty Foster\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1591", ",", "3337", ",", "4206"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"froeb901\"\>", ",", "\<\"Bruce Froemming\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1754", ",", "3638", ",", "4575"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"fullt901\"\>", ",", "\<\"Troy Fullwood\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"94", ",", "191", ",", "272"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"gibsg901\"\>", ",", "\<\"Greg Gibson\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1700", ",", "3985", ",", "4578"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"gormb901\"\>", ",", "\<\"Brian Gorman\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1826", ",", "3742", ",", "4649"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"guccc901\"\>", ",", "\<\"Chris Guccione\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"2012", ",", "4467", ",", "5420"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"hallt901\"\>", ",", "\<\"Tom Hallion\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1708", ",", "3602", ",", "4501"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"herna901\"\>", ",", "\<\"Angel Hernandez\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1737", ",", "3945", ",", "4807"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"hicke901\"\>", ",", "\<\"Ed Hickox\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1717", ",", "3650", ",", "4470"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"hirsj901\"\>", ",", "\<\"John Hirschbeck\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1439", ",", "2771", ",", "3474"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"hohnb901\"\>", ",", "\<\"Bill Hohn\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"154", ",", "351", ",", "367"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"holbs901\"\>", ",", "\<\"Sam Holbrook\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1795", ",", "3994", ",", "4779"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"hoyej901\"\>", ",", "\<\"James Hoye\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1797", ",", "3875", ",", "4701"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"hudsm901\"\>", ",", "\<\"Marvin Hudson\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1712", ",", "3670", ",", "4440"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"iassd901\"\>", ",", "\<\"Dan Iassogna\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1736", ",", "3713", ",", "4566"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"johna901\"\>", ",", "\<\"Adrian Johnson\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"808", ",", "1762", ",", "2115"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"joycj901\"\>", ",", "\<\"Jim Joyce\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1732", ",", "3776", ",", "4439"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"kellj901\"\>", ",", "\<\"Jeff Kellogg\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1724", ",", "3805", ",", "4580"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"knigb901\"\>", ",", "\<\"Brian Knight\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1414", ",", "3106", ",", "3837"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"kulpr901\"\>", ",", "\<\"Ron Kulpa\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1842", ",", "3761", ",", "4780"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"laynj901\"\>", ",", "\<\"Jerry Layne\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"987", ",", "2287", ",", "2663"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"marqa901\"\>", ",", "\<\"Alfonso Marquez\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1512", ",", "3340", ",", "4170"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"marsr901\"\>", ",", "\<\"Randy Marsh\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1747", ",", "3988", ",", "4748"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"mcclt901\"\>", ",", "\<\"Tim McClelland\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1809", ",", "3984", ",", "4989"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"mealj901\"\>", ",", "\<\"Jerry Meals\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1592", ",", "3553", ",", "4313"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"meric901\"\>", ",", "\<\"Chuck Meriwether\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1711", ",", "3794", ",", "4562"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"millb901\"\>", ",", "\<\"Bill Miller\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1859", ",", "3691", ",", "4576"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"monte901\"\>", ",", "\<\"Ed Montague\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1558", ",", "3495", ",", "4156"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"muchm901\"\>", ",", "\<\"Mike Muchlinski\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"340", ",", "734", ",", "814"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"nauep901\"\>", ",", "\<\"Paul Nauert\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1789", ",", "3741", ",", "4768"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"nelsj901\"\>", ",", "\<\"Jeff Nelson\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1093", ",", "2025", ",", "2427"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"onorb901\"\>", ",", "\<\"Brian O'Nora\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"962", ",", "1997", ",", "2390"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"poncl901\"\>", ",", "\<\"Larry Poncino\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1542", ",", "3436", ",", "4355"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"randt901\"\>", ",", "\<\"Tony Randazzo\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1695", ",", "3800", ",", "4619"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"rapue901\"\>", ",", "\<\"Ed Rapuano\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1756", ",", "3749", ",", "4440"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"reedr901\"\>", ",", "\<\"Rick Reed\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1770", ",", "3662", ",", "4471"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"reilm901\"\>", ",", "\<\"Mike Reilly\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1727", ",", "3864", ",", "4659"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"reint901\"\>", ",", "\<\"Travis Reininger\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"269", ",", "552", ",", "712"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"relic901\"\>", ",", "\<\"Charlie Reliford\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1344", ",", "2684", ",", "3339"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"reynj901\"\>", ",", "\<\"Jim Reynolds\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1787", ",", "3862", ",", "4843"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"rungb901\"\>", ",", "\<\"Brian Runge\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1809", ",", "3831", ",", "4732"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"schrp901\"\>", ",", "\<\"Paul Schrieber\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1551", ",", "3729", ",", "4338"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"scotd901\"\>", ",", "\<\"Dale Scott\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1952", ",", "3868", ",", "4691"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"ticht901\"\>", ",", "\<\"Todd Tichenor\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"242", ",", "529", ",", "605"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"timmt901\"\>", ",", "\<\"Tim Timmons\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1610", ",", "3693", ",", "4351"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"tscht901\"\>", ",", "\<\"Tim Tschida\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1691", ",", "3828", ",", "4768"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"vanol901\"\>", ",", "\<\"Larry Vanover\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1816", ",", "3950", ",", "4901"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"wegnm901\"\>", ",", "\<\"Mark Wegner\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1659", ",", "3663", ",", "4519"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"welkb901\"\>", ",", "\<\"Bill Welke\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1798", ",", "3552", ",", "4483"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"welkt901\"\>", ",", "\<\"Tim Welke\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1315", ",", "2779", ",", "3511"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"wendh902\"\>", ",", "\<\"Hunter Wendelstedt\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1664", ",", "3584", ",", "4384"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"westj901\"\>", ",", "\<\"Joe West\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1745", ",", "3886", ",", "4707"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"wintm901\"\>", ",", "\<\"Mike Winters\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1620", ",", "3332", ",", "4081"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"wolfj901\"\>", ",", "\<\"Jim Wolf\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1679", ",", "3438", ",", "4462"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"younl901\"\>", ",", "\<\"Larry Young\"\>"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"1073", ",", "2354", ",", "2925"}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.4517738846193743`*^9, 3.4517741335013523`*^9, 
+  3.451774344823496*^9},
+ CellID->1513371398]
+}, Closed]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"gamesByUmp", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"HomePlateUmpire", "[", 
+         RowBox[{"First", "[", "#", "]"}], "]"}], ",", "#"}], "}"}], "&"}], 
+     ",", 
+     RowBox[{"SplitBy", "[", 
+      RowBox[{
+       RowBox[{"SortBy", "[", 
+        RowBox[{"Season2007", ",", 
+         RowBox[{
+          RowBox[{"HomePlateUmpire", "[", "#", "]"}], "&"}]}], "]"}], ",", 
+       RowBox[{
+        RowBox[{"HomePlateUmpire", "[", "#", "]"}], "&"}]}], "]"}]}], "]"}]}],
+   ";"}]], "Input",
+ CellChangeTimes->{{3.4474150466211557`*^9, 3.447415160802351*^9}, {
+  3.447415200979003*^9, 3.4474152118028507`*^9}, {3.44741524387289*^9, 
+  3.447415276177183*^9}, {3.451809936839387*^9, 3.451809938381918*^9}, {
+  3.451810478578352*^9, 3.451810519584633*^9}},
+ CellID->115703951],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"pitchdata", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"#", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], ",", 
+      RowBox[{"Length", "[", 
+       RowBox[{"#", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "]"}], ",", 
+      RowBox[{"Plus", "@@", 
+       RowBox[{"Map", "[", 
+        RowBox[{"PitchCallTotals", ",", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}]}], "}"}], "&"}], "/@", 
+   "gamesByUmp"}]}]], "Input",
+ CellChangeTimes->{{3.447415291225721*^9, 3.447415344537076*^9}, {
+   3.447415407867446*^9, 3.447415431849038*^9}, 3.447415479756056*^9, {
+   3.447768260909721*^9, 3.447768273523374*^9}},
+ CellID->1163603922],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"barkl901\"\>", ",", "\<\"Lance Barksdale\"\>"}], "}"}], 
+      "35", 
+      RowBox[{"{", 
+       RowBox[{"1737", ",", "3863", ",", "4680"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"barrs901\"\>", ",", "\<\"Scott Barry\"\>"}], "}"}], "8", 
+      RowBox[{"{", 
+       RowBox[{"366", ",", "1031", ",", "1131"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"barrt901\"\>", ",", "\<\"Ted Barrett\"\>"}], "}"}], "34", 
+      
+      RowBox[{"{", 
+       RowBox[{"1789", ",", "3714", ",", "4650"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"bellw901\"\>", ",", "\<\"Wally Bell\"\>"}], "}"}], "33", 
+      RowBox[{"{", 
+       RowBox[{"1695", ",", "3621", ",", "4513"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"buckc901\"\>", ",", "\<\"CB Bucknor\"\>"}], "}"}], "34", 
+      RowBox[{"{", 
+       RowBox[{"1749", ",", "3789", ",", "4486"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"campa902\"\>", ",", "\<\"Angel Campos\"\>"}], "}"}], "6", 
+      
+      RowBox[{"{", 
+       RowBox[{"285", ",", "670", ",", "868"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"carlm901\"\>", ",", "\<\"Mark Carlson\"\>"}], "}"}], "34", 
+      RowBox[{"{", 
+       RowBox[{"1733", ",", "3727", ",", "4686"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"cedeg901\"\>", ",", "\<\"Gary Cederstrom\"\>"}], "}"}], 
+      "33", 
+      RowBox[{"{", 
+       RowBox[{"1689", ",", "3393", ",", "4308"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"coope901\"\>", ",", "\<\"Eric Cooper\"\>"}], "}"}], "32", 
+      
+      RowBox[{"{", 
+       RowBox[{"1590", ",", "3358", ",", "4248"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"cousd901\"\>", ",", "\<\"Derryl Cousins\"\>"}], "}"}], 
+      "33", 
+      RowBox[{"{", 
+       RowBox[{"1652", ",", "3580", ",", "4405"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"crawj901\"\>", ",", "\<\"Jerry Crawford\"\>"}], "}"}], 
+      "16", 
+      RowBox[{"{", 
+       RowBox[{"772", ",", "1776", ",", "2087"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"culbf901\"\>", ",", "\<\"Fieldin Culbreth\"\>"}], "}"}], 
+      "34", 
+      RowBox[{"{", 
+       RowBox[{"1636", ",", "3655", ",", "4543"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"cuzzp901\"\>", ",", "\<\"Phil Cuzzi\"\>"}], "}"}], "35", 
+      RowBox[{"{", 
+       RowBox[{"1791", ",", "3666", ",", "4585"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"danlk901\"\>", ",", "\<\"Kerwin Danley\"\>"}], "}"}], 
+      "34", 
+      RowBox[{"{", 
+       RowBox[{"1656", ",", "3619", ",", "4568"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"darlg901\"\>", ",", "\<\"Gary Darling\"\>"}], "}"}], "33", 
+      RowBox[{"{", 
+       RowBox[{"1678", ",", "3526", ",", "4420"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"davib902\"\>", ",", "\<\"Bob Davidson\"\>"}], "}"}], "34", 
+      RowBox[{"{", 
+       RowBox[{"1809", ",", "3697", ",", "4579"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"davig901\"\>", ",", "\<\"Gerry Davis\"\>"}], "}"}], "35", 
+      
+      RowBox[{"{", 
+       RowBox[{"1692", ",", "4044", ",", "4835"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"delld901\"\>", ",", "\<\"Dusty Dellinger\"\>"}], "}"}], 
+      "1", 
+      RowBox[{"{", 
+       RowBox[{"50", ",", "93", ",", "114"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"demud901\"\>", ",", "\<\"Dana DeMuth\"\>"}], "}"}], "34", 
+      
+      RowBox[{"{", 
+       RowBox[{"1746", ",", "3950", ",", "4686"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"diazl901\"\>", ",", "\<\"Laz Diaz\"\>"}], "}"}], "36", 
+      RowBox[{"{", 
+       RowBox[{"1861", ",", "3695", ",", "4916"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"dimum901\"\>", ",", "\<\"Mike DiMuro\"\>"}], "}"}], "9", 
+      RowBox[{"{", 
+       RowBox[{"464", ",", "947", ",", "1187"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"dowda901\"\>", ",", "\<\"Adam Dowdy\"\>"}], "}"}], "27", 
+      RowBox[{"{", 
+       RowBox[{"1404", ",", "2952", ",", "3676"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"drakr901\"\>", ",", "\<\"Rob Drake\"\>"}], "}"}], "35", 
+      RowBox[{"{", 
+       RowBox[{"1761", ",", "3878", ",", "4726"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"drecb901\"\>", ",", "\<\"Bruce Dreckman\"\>"}], "}"}], 
+      "30", 
+      RowBox[{"{", 
+       RowBox[{"1605", ",", "3288", ",", "4044"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"eddid901\"\>", ",", "\<\"Doug Eddings\"\>"}], "}"}], "34", 
+      RowBox[{"{", 
+       RowBox[{"1905", ",", "3369", ",", "4582"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"emmep901\"\>", ",", "\<\"Paul Emmel\"\>"}], "}"}], "29", 
+      RowBox[{"{", 
+       RowBox[{"1564", ",", "3082", ",", "3804"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"estam901\"\>", ",", "\<\"Mike Estabrook\"\>"}], "}"}], 
+      "3", 
+      RowBox[{"{", 
+       RowBox[{"147", ",", "315", ",", "433"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"everm901\"\>", ",", "\<\"Mike Everitt\"\>"}], "}"}], "34", 
+      RowBox[{"{", 
+       RowBox[{"1695", ",", "3525", ",", "4403"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"fairc901\"\>", ",", "\<\"Chad Fairchild\"\>"}], "}"}], 
+      "28", 
+      RowBox[{"{", 
+       RowBox[{"1451", ",", "3157", ",", "3877"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"fleta901\"\>", ",", "\<\"Andy Fletcher\"\>"}], "}"}], 
+      "18", 
+      RowBox[{"{", 
+       RowBox[{"889", ",", "1845", ",", "2426"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"fostm901\"\>", ",", "\<\"Marty Foster\"\>"}], "}"}], "31", 
+      RowBox[{"{", 
+       RowBox[{"1591", ",", "3337", ",", "4206"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"froeb901\"\>", ",", "\<\"Bruce Froemming\"\>"}], "}"}], 
+      "33", 
+      RowBox[{"{", 
+       RowBox[{"1754", ",", "3638", ",", "4575"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"fullt901\"\>", ",", "\<\"Troy Fullwood\"\>"}], "}"}], "2", 
+      RowBox[{"{", 
+       RowBox[{"94", ",", "191", ",", "272"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"gibsg901\"\>", ",", "\<\"Greg Gibson\"\>"}], "}"}], "34", 
+      
+      RowBox[{"{", 
+       RowBox[{"1700", ",", "3985", ",", "4578"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"gormb901\"\>", ",", "\<\"Brian Gorman\"\>"}], "}"}], "34", 
+      RowBox[{"{", 
+       RowBox[{"1826", ",", "3742", ",", "4649"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"guccc901\"\>", ",", "\<\"Chris Guccione\"\>"}], "}"}], 
+      "40", 
+      RowBox[{"{", 
+       RowBox[{"2012", ",", "4467", ",", "5420"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"hallt901\"\>", ",", "\<\"Tom Hallion\"\>"}], "}"}], "33", 
+      
+      RowBox[{"{", 
+       RowBox[{"1708", ",", "3602", ",", "4501"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"herna901\"\>", ",", "\<\"Angel Hernandez\"\>"}], "}"}], 
+      "36", 
+      RowBox[{"{", 
+       RowBox[{"1737", ",", "3945", ",", "4807"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"hicke901\"\>", ",", "\<\"Ed Hickox\"\>"}], "}"}], "34", 
+      RowBox[{"{", 
+       RowBox[{"1717", ",", "3650", ",", "4470"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"hirsj901\"\>", ",", "\<\"John Hirschbeck\"\>"}], "}"}], 
+      "26", 
+      RowBox[{"{", 
+       RowBox[{"1439", ",", "2771", ",", "3474"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"hohnb901\"\>", ",", "\<\"Bill Hohn\"\>"}], "}"}], "3", 
+      RowBox[{"{", 
+       RowBox[{"154", ",", "351", ",", "367"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"holbs901\"\>", ",", "\<\"Sam Holbrook\"\>"}], "}"}], "34", 
+      RowBox[{"{", 
+       RowBox[{"1795", ",", "3994", ",", "4779"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"hoyej901\"\>", ",", "\<\"James Hoye\"\>"}], "}"}], "35", 
+      RowBox[{"{", 
+       RowBox[{"1797", ",", "3875", ",", "4701"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"hudsm901\"\>", ",", "\<\"Marvin Hudson\"\>"}], "}"}], 
+      "32", 
+      RowBox[{"{", 
+       RowBox[{"1712", ",", "3670", ",", "4440"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"iassd901\"\>", ",", "\<\"Dan Iassogna\"\>"}], "}"}], "34", 
+      RowBox[{"{", 
+       RowBox[{"1736", ",", "3713", ",", "4566"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"johna901\"\>", ",", "\<\"Adrian Johnson\"\>"}], "}"}], 
+      "16", 
+      RowBox[{"{", 
+       RowBox[{"808", ",", "1762", ",", "2115"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"joycj901\"\>", ",", "\<\"Jim Joyce\"\>"}], "}"}], "34", 
+      RowBox[{"{", 
+       RowBox[{"1732", ",", "3776", ",", "4439"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"kellj901\"\>", ",", "\<\"Jeff Kellogg\"\>"}], "}"}], "35", 
+      RowBox[{"{", 
+       RowBox[{"1724", ",", "3805", ",", "4580"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"knigb901\"\>", ",", "\<\"Brian Knight\"\>"}], "}"}], "28", 
+      RowBox[{"{", 
+       RowBox[{"1414", ",", "3106", ",", "3837"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"kulpr901\"\>", ",", "\<\"Ron Kulpa\"\>"}], "}"}], "35", 
+      RowBox[{"{", 
+       RowBox[{"1842", ",", "3761", ",", "4780"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"laynj901\"\>", ",", "\<\"Jerry Layne\"\>"}], "}"}], "19", 
+      
+      RowBox[{"{", 
+       RowBox[{"987", ",", "2287", ",", "2663"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"marqa901\"\>", ",", "\<\"Alfonso Marquez\"\>"}], "}"}], 
+      "31", 
+      RowBox[{"{", 
+       RowBox[{"1512", ",", "3340", ",", "4170"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"marsr901\"\>", ",", "\<\"Randy Marsh\"\>"}], "}"}], "35", 
+      
+      RowBox[{"{", 
+       RowBox[{"1747", ",", "3988", ",", "4748"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"mcclt901\"\>", ",", "\<\"Tim McClelland\"\>"}], "}"}], 
+      "37", 
+      RowBox[{"{", 
+       RowBox[{"1809", ",", "3984", ",", "4989"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"mealj901\"\>", ",", "\<\"Jerry Meals\"\>"}], "}"}], "32", 
+      
+      RowBox[{"{", 
+       RowBox[{"1592", ",", "3553", ",", "4313"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"meric901\"\>", ",", "\<\"Chuck Meriwether\"\>"}], "}"}], 
+      "33", 
+      RowBox[{"{", 
+       RowBox[{"1711", ",", "3794", ",", "4562"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"millb901\"\>", ",", "\<\"Bill Miller\"\>"}], "}"}], "34", 
+      
+      RowBox[{"{", 
+       RowBox[{"1859", ",", "3691", ",", "4576"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"monte901\"\>", ",", "\<\"Ed Montague\"\>"}], "}"}], "31", 
+      
+      RowBox[{"{", 
+       RowBox[{"1558", ",", "3495", ",", "4156"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"muchm901\"\>", ",", "\<\"Mike Muchlinski\"\>"}], "}"}], 
+      "7", 
+      RowBox[{"{", 
+       RowBox[{"340", ",", "734", ",", "814"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"nauep901\"\>", ",", "\<\"Paul Nauert\"\>"}], "}"}], "35", 
+      
+      RowBox[{"{", 
+       RowBox[{"1789", ",", "3741", ",", "4768"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"nelsj901\"\>", ",", "\<\"Jeff Nelson\"\>"}], "}"}], "20", 
+      
+      RowBox[{"{", 
+       RowBox[{"1093", ",", "2025", ",", "2427"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"onorb901\"\>", ",", "\<\"Brian O'Nora\"\>"}], "}"}], "18", 
+      RowBox[{"{", 
+       RowBox[{"962", ",", "1997", ",", "2390"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"poncl901\"\>", ",", "\<\"Larry Poncino\"\>"}], "}"}], 
+      "32", 
+      RowBox[{"{", 
+       RowBox[{"1542", ",", "3436", ",", "4355"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"randt901\"\>", ",", "\<\"Tony Randazzo\"\>"}], "}"}], 
+      "33", 
+      RowBox[{"{", 
+       RowBox[{"1695", ",", "3800", ",", "4619"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"rapue901\"\>", ",", "\<\"Ed Rapuano\"\>"}], "}"}], "34", 
+      RowBox[{"{", 
+       RowBox[{"1756", ",", "3749", ",", "4440"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"reedr901\"\>", ",", "\<\"Rick Reed\"\>"}], "}"}], "33", 
+      RowBox[{"{", 
+       RowBox[{"1770", ",", "3662", ",", "4471"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"reilm901\"\>", ",", "\<\"Mike Reilly\"\>"}], "}"}], "34", 
+      
+      RowBox[{"{", 
+       RowBox[{"1727", ",", "3864", ",", "4659"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"reint901\"\>", ",", "\<\"Travis Reininger\"\>"}], "}"}], 
+      "5", 
+      RowBox[{"{", 
+       RowBox[{"269", ",", "552", ",", "712"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"relic901\"\>", ",", "\<\"Charlie Reliford\"\>"}], "}"}], 
+      "25", 
+      RowBox[{"{", 
+       RowBox[{"1344", ",", "2684", ",", "3339"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"reynj901\"\>", ",", "\<\"Jim Reynolds\"\>"}], "}"}], "35", 
+      RowBox[{"{", 
+       RowBox[{"1787", ",", "3862", ",", "4843"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"rungb901\"\>", ",", "\<\"Brian Runge\"\>"}], "}"}], "36", 
+      
+      RowBox[{"{", 
+       RowBox[{"1809", ",", "3831", ",", "4732"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"schrp901\"\>", ",", "\<\"Paul Schrieber\"\>"}], "}"}], 
+      "31", 
+      RowBox[{"{", 
+       RowBox[{"1551", ",", "3729", ",", "4338"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"scotd901\"\>", ",", "\<\"Dale Scott\"\>"}], "}"}], "35", 
+      RowBox[{"{", 
+       RowBox[{"1952", ",", "3868", ",", "4691"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"ticht901\"\>", ",", "\<\"Todd Tichenor\"\>"}], "}"}], "5", 
+      RowBox[{"{", 
+       RowBox[{"242", ",", "529", ",", "605"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"timmt901\"\>", ",", "\<\"Tim Timmons\"\>"}], "}"}], "33", 
+      
+      RowBox[{"{", 
+       RowBox[{"1610", ",", "3693", ",", "4351"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"tscht901\"\>", ",", "\<\"Tim Tschida\"\>"}], "}"}], "35", 
+      
+      RowBox[{"{", 
+       RowBox[{"1691", ",", "3828", ",", "4768"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"vanol901\"\>", ",", "\<\"Larry Vanover\"\>"}], "}"}], 
+      "36", 
+      RowBox[{"{", 
+       RowBox[{"1816", ",", "3950", ",", "4901"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"wegnm901\"\>", ",", "\<\"Mark Wegner\"\>"}], "}"}], "33", 
+      
+      RowBox[{"{", 
+       RowBox[{"1659", ",", "3663", ",", "4519"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"welkb901\"\>", ",", "\<\"Bill Welke\"\>"}], "}"}], "34", 
+      RowBox[{"{", 
+       RowBox[{"1798", ",", "3552", ",", "4483"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"welkt901\"\>", ",", "\<\"Tim Welke\"\>"}], "}"}], "25", 
+      RowBox[{"{", 
+       RowBox[{"1315", ",", "2779", ",", "3511"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"wendh902\"\>", ",", "\<\"Hunter Wendelstedt\"\>"}], "}"}],
+       "33", 
+      RowBox[{"{", 
+       RowBox[{"1664", ",", "3584", ",", "4384"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"westj901\"\>", ",", "\<\"Joe West\"\>"}], "}"}], "36", 
+      RowBox[{"{", 
+       RowBox[{"1745", ",", "3886", ",", "4707"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"wintm901\"\>", ",", "\<\"Mike Winters\"\>"}], "}"}], "32", 
+      RowBox[{"{", 
+       RowBox[{"1620", ",", "3332", ",", "4081"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"wolfj901\"\>", ",", "\<\"Jim Wolf\"\>"}], "}"}], "33", 
+      RowBox[{"{", 
+       RowBox[{"1679", ",", "3438", ",", "4462"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"\<\"younl901\"\>", ",", "\<\"Larry Young\"\>"}], "}"}], "21", 
+      
+      RowBox[{"{", 
+       RowBox[{"1073", ",", "2354", ",", "2925"}], "}"}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{3.451810166049987*^9, 3.4518107264289618`*^9},
+ CellID->118960907]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"StrikeBallPoint", "[", 
+   RowBox[{"{", 
+    RowBox[{"a_", ",", "b_", ",", "c_"}], "}"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"a", ",", "b"}], "}"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"a", "+", "b", "+", "c"}], ")"}]}], "//", "N"}]}]], "Input",
+ CellChangeTimes->{{3.447415532373748*^9, 3.447415574608988*^9}, {
+  3.45181130756063*^9, 3.451811313409306*^9}},
+ CellID->1705027472],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Tooltip", "[", 
+      RowBox[{
+       RowBox[{"StrikeBallPoint", "[", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", "3", "]"}], "]"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"#", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], ",", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "2", "]"}], "]"}]}], "}"}]}], "]"}], "&"}], ",", 
+    "pitchdata"}], "]"}], "//", "ListPlot"}]], "Input",
+ CellChangeTimes->{{3.447415449498088*^9, 3.447415485641836*^9}, {
+   3.447415591849535*^9, 3.447415630615624*^9}, {3.447415682634775*^9, 
+   3.447415704160483*^9}, {3.447415744538693*^9, 3.4474157580707006`*^9}, 
+   3.4474222585955753`*^9, {3.4475834298512793`*^9, 3.447583434257206*^9}, {
+   3.447768339309187*^9, 3.447768361531323*^9}, 3.451811321613454*^9, {
+   3.451811544717198*^9, 3.451811575136201*^9}},
+ CellID->374936336],
+
+Cell[BoxData[
+ FormBox[
+  GraphicsBox[{{{}, 
+     {Hue[0.67, 0.6, 0.6], PointBox[CompressedData["
+1:eJwdlAs01Ukcx7lJ3hUdyXakyPZglbQV1TdFW+zalet9vfLITbqhlGrz2Ege
+F5GbqLRpybYbhy2sUtb8L/K4G5o/SZ5RWyulrk1291/nO3Nmzpk5v/nO/D6/
+WbxbtCuIp6Cg4ML1jyNTQD4KdzU+isWcs+IXC5LqYPlp0o2TW3ePdacxaHLt
+7XUSUqwzY5VatRnony7V6smiOFCbUh/swuBIqFqjymoWlx/lT7fy6jEZeEMx
+NYFCv+JJzPsegv/WWqRFxFNM3e8UaipLoZfpnb3BkCLY4MJIwWIGKVmqvXU+
+FEcM/N3NxgnsbljkhzAUaWrtwmYnggjZU9qfwCKcbrZzdSAwe2reIGqkiDoc
+pmjZwWCDRVbLFm8K/ibx3LEkAlHJptmvT1FcvZJga+/EQHb2rll5BMXL3qZl
+5C23X2A0uDCKQpBBTB4fr4dzZIRP8zEWC0b0ODWALvskTCgfeilNJDi3b2+v
+2IPFUNvLLba1DD4PUJ2jfPYhMkZ0PPg9DELWhhaY8Cl2zZEJnvgyeL96k0Y+
+d//LsQ1nNtUS7H3RfGVynGLHGy/lBx8Y2Jr7jMpSKGa9E1+Lu92AkrjbAXv7
+OjGp8GrWdKkUYdGmS5rdKNgJ91uKygSjK3LSRIkPEZ9xJJukMPg9M0rxUjiF
+Ww+xyh4k2P+v0X15G8Vz6pd/QpNBldHfSdYDD+Eseu193YFB2MHOvnJ/Cr1W
+Vng6kUGX5NywtYAiqMuoWp5LcK+o1vrL153gVWXy2tYQDCkZK93sYiHYGHPe
+s4/B/B9nSH45QNHayPevKSSoSFwdfFOZhZmSoZtkB4P9gzXbLGMo3hjsq4uw
+INDPsc9Yps1C6lLgcMKNwXKeTdSWWu69v9526vSkFNbbw38NmEdRKoQHL4+B
++ULb9LG6LixUFWpX3Saow5PY2atYPI/RjP7ZlIt/krcrbpSiI9Jxbuq3DMIx
+3jH8jCJrpr6V4ioGAnmY2Laa48Hl4F9uOgxKTUzXv5jLQlse61a8k8EPnwmH
+0h1Y8N50RNp3EAy/fX9mSJfFdVm2Fr+YINhbvdGD4ylfrGe8/jcGYpUUeeUX
+FCtakqeTviLQKT9c/E0RiwQ74aXcSILc0JBVh8o4ngNnyNv4BHEPBNOD7iz8
+omsyW6IJZvr2r5Bf5fwGLcrPTyE49kGlpF2NxTPPcn/7ewQh0zazKw1Y6DsF
+3iUxUvQYX1bX5fjhl9qY1RcRHJ3hFaxlz+KxROqqpCnFh9dsckE/i3aDQol4
+I+cvtUowCAqNtQ6hGtaNMLr/nb6rL0W3/bwj62ZKkWRFHsmGON7CSv3GlhLE
+Br6y7E2nkPCrIs9w/o2nfM/dUWcxfyBXdyCXAcs3/NiwXK1Kt5bLd075GllO
+CcXKsZ6lvEyC6rIHjj7cus+e6AvDhxhUHuivS1Dn/Do7blb1lKI9OXLYyIni
+D8eROs0WgjIPNzSKuXxPOfYZOjM4b+LhIblC8TipRce0sB5DQa79kLFIjKkw
+8iRSaFV23tqYxtWL+aj6+3gGRdeXhzadZ7HE0mFrtTuBZ5Jo5WGuPtXouO5R
+NQL7PD+1P2Xc+fpLB7KaCOoj3l3jlVPIk7cuUc8mmLxYlr3vAUXLaa/C2j1S
+HMtrthMZUNyxar/2H/ffVOtcVFEIoDiV0FbzfCGDiZnf2/hy8STCfYNz8jg+
+Fm0cKNZiMR7kZV42weAnpePF6XkUKV35/6SKGDRXRC/ZPfkQ3U/jd26/RDA1
+YGgjvUXxP3rXr58=
+       "]]}, {}}, {
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16896887159533075`, 0.3757782101167315}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"barkl901\"", ",", "\"Lance Barksdale\""}], "}"}], ",",
+            "35"}], "}"}]],
+      Annotation[#, {{"barkl901", "Lance Barksdale"}, 35}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.14477848101265822`, 0.40783227848101267`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"barrs901\"", ",", "\"Scott Barry\""}], "}"}], ",", 
+           "8"}], "}"}]],
+      Annotation[#, {{"barrs901", "Scott Barry"}, 8}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17620407761252832`, 0.36580321087363343`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"barrt901\"", ",", "\"Ted Barrett\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"barrt901", "Ted Barrett"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1724488757757656, 0.368399633736901}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"bellw901\"", ",", "\"Wally Bell\""}], "}"}], ",", 
+           "33"}], "}"}]],
+      Annotation[#, {{"bellw901", "Wally Bell"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17448124501197126`, 0.3779928172386273}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"buckc901\"", ",", "\"CB Bucknor\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"buckc901", "CB Bucknor"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.15633571036752605`, 0.36752605595172794`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"campa902\"", ",", "\"Angel Campos\""}], "}"}], ",", 
+           "6"}], "}"}]],
+      Annotation[#, {{"campa902", "Angel Campos"}, 6}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17080622905578552`, 0.36733688152966687`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"carlm901\"", ",", "\"Mark Carlson\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"carlm901", "Mark Carlson"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17987220447284344`, 0.36134185303514377`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"cedeg901\"", ",", "\"Gary Cederstrom\""}], "}"}], ",",
+            "33"}], "}"}]],
+      Annotation[#, {{"cedeg901", "Gary Cederstrom"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17290126141800782`, 0.3651587646802958}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"coope901\"", ",", "\"Eric Cooper\""}], "}"}], ",", 
+           "32"}], "}"}]],
+      Annotation[#, {{"coope901", "Eric Cooper"}, 32}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17142264190100653`, 0.3714849019404379}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"cousd901\"", ",", "\"Derryl Cousins\""}], "}"}], ",", 
+           "33"}], "}"}]],
+      Annotation[#, {{"cousd901", "Derryl Cousins"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16655879180151026`, 0.3831715210355987}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"crawj901\"", ",", "\"Jerry Crawford\""}], "}"}], ",", 
+           "16"}], "}"}]],
+      Annotation[#, {{"crawj901", "Jerry Crawford"}, 16}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16636160260321334`, 0.3716697173073012}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"culbf901\"", ",", "\"Fieldin Culbreth\""}], "}"}], 
+           ",", "34"}], "}"}]],
+      Annotation[#, {{"culbf901", "Fieldin Culbreth"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1783509261103366, 0.3650667197769369}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"cuzzp901\"", ",", "\"Phil Cuzzi\""}], "}"}], ",", 
+           "35"}], "}"}]],
+      Annotation[#, {{"cuzzp901", "Phil Cuzzi"}, 35}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16824138982017678`, 0.3676724575840699}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"danlk901\"", ",", "\"Kerwin Danley\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"danlk901", "Kerwin Danley"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17435577722360765`, 0.36637572734829593`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"darlg901\"", ",", "\"Gary Darling\""}], "}"}], ",", 
+           "33"}], "}"}]],
+      Annotation[#, {{"darlg901", "Gary Darling"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17937530986613784`, 0.3665840356965791}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"davib902\"", ",", "\"Bob Davidson\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"davib902", "Bob Davidson"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1600605429949863, 0.3825560495695772}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"davig901\"", ",", "\"Gerry Davis\""}], "}"}], ",", 
+           "35"}], "}"}]],
+      Annotation[#, {{"davig901", "Gerry Davis"}, 35}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.19455252918287938`, 0.36186770428015563`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"delld901\"", ",", "\"Dusty Dellinger\""}], "}"}], ",",
+            "1"}], "}"}]],
+      Annotation[#, {{"delld901", "Dusty Dellinger"}, 1}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16817568869196686`, 0.38046619148526295`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"demud901\"", ",", "\"Dana DeMuth\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"demud901", "Dana DeMuth"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17771199388846448`, 0.35284568372803665`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"diazl901\"", ",", "\"Laz Diaz\""}], "}"}], ",", 
+           "36"}], "}"}]],
+      Annotation[#, {{"diazl901", "Laz Diaz"}, 36}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17859892224788299`, 0.3645111624326405}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"dimum901\"", ",", "\"Mike DiMuro\""}], "}"}], ",", 
+           "9"}], "}"}]],
+      Annotation[#, {{"dimum901", "Mike DiMuro"}, 9}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17480079681274902`, 0.36752988047808766`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"dowda901\"", ",", "\"Adam Dowdy\""}], "}"}], ",", 
+           "27"}], "}"}]],
+      Annotation[#, {{"dowda901", "Adam Dowdy"}, 27}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1698986975397974, 0.3741437530149542}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"drakr901\"", ",", "\"Rob Drake\""}], "}"}], ",", 
+           "35"}], "}"}]],
+      Annotation[#, {{"drakr901", "Rob Drake"}, 35}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17959046659953004`, 0.36790869419268213`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"drecb901\"", ",", "\"Bruce Dreckman\""}], "}"}], ",", 
+           "30"}], "}"}]],
+      Annotation[#, {{"drecb901", "Bruce Dreckman"}, 30}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.19328327922077923`, 0.3418222402597403}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"eddid901\"", ",", "\"Doug Eddings\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"eddid901", "Doug Eddings"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1850887573964497, 0.3647337278106509}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"emmep901\"", ",", "\"Paul Emmel\""}], "}"}], ",", 
+           "29"}], "}"}]],
+      Annotation[#, {{"emmep901", "Paul Emmel"}, 29}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16424581005586592`, 0.35195530726256985`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"estam901\"", ",", "\"Mike Estabrook\""}], "}"}], ",", 
+           "3"}], "}"}]],
+      Annotation[#, {{"estam901", "Mike Estabrook"}, 3}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17614049672659254`, 0.3663098825730022}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"everm901\"", ",", "\"Mike Everitt\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"everm901", "Mike Everitt"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1710076605774897, 0.37206835592221565`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"fairc901\"", ",", "\"Chad Fairchild\""}], "}"}], ",", 
+           "28"}], "}"}]],
+      Annotation[#, {{"fairc901", "Chad Fairchild"}, 28}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17228682170542636`, 0.35755813953488375`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"fleta901\"", ",", "\"Andy Fletcher\""}], "}"}], ",", 
+           "18"}], "}"}]],
+      Annotation[#, {{"fleta901", "Andy Fletcher"}, 18}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1741843661046639, 0.3653382964747099}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"fostm901\"", ",", "\"Marty Foster\""}], "}"}], ",", 
+           "31"}], "}"}]],
+      Annotation[#, {{"fostm901", "Marty Foster"}, 31}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17598073643021972`, 0.36500451489916724`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"froeb901\"", ",", "\"Bruce Froemming\""}], "}"}], ",",
+            "33"}], "}"}]],
+      Annotation[#, {{"froeb901", "Bruce Froemming"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1687612208258528, 0.34290843806104127`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"fullt901\"", ",", "\"Troy Fullwood\""}], "}"}], ",", 
+           "2"}], "}"}]],
+      Annotation[#, {{"fullt901", "Troy Fullwood"}, 2}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1656435740037026, 0.3882880249439735}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"gibsg901\"", ",", "\"Greg Gibson\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"gibsg901", "Greg Gibson"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17872173827933835`, 0.3662523245571107}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"gormb901\"", ",", "\"Brian Gorman\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"gormb901", "Brian Gorman"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16908983948230943`, 0.3754096982939743}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"guccc901\"", ",", "\"Chris Guccione\""}], "}"}], ",", 
+           "40"}], "}"}]],
+      Annotation[#, {{"guccc901", "Chris Guccione"}, 40}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1740903067984915, 0.36713892569564777`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"hallt901\"", ",", "\"Tom Hallion\""}], "}"}], ",", 
+           "33"}], "}"}]],
+      Annotation[#, {{"hallt901", "Tom Hallion"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1656020593002193, 0.3761083039374583}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"herna901\"", ",", "\"Angel Hernandez\""}], "}"}], ",",
+            "36"}], "}"}]],
+      Annotation[#, {{"herna901", "Angel Hernandez"}, 36}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17454508488360274`, 0.3710480837653756}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"hicke901\"", ",", "\"Ed Hickox\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"hicke901", "Ed Hickox"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1872722540343571, 0.3606194690265487}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"hirsj901\"", ",", "\"John Hirschbeck\""}], "}"}], ",",
+            "26"}], "}"}]],
+      Annotation[#, {{"hirsj901", "John Hirschbeck"}, 26}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17660550458715596`, 0.4025229357798165}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"hohnb901\"", ",", "\"Bill Hohn\""}], "}"}], ",", 
+           "3"}], "}"}]],
+      Annotation[#, {{"hohnb901", "Bill Hohn"}, 3}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16985238455715368`, 0.3779333838001514}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"holbs901\"", ",", "\"Sam Holbrook\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"holbs901", "Sam Holbrook"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1732382145955847, 0.3735659886243131}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"hoyej901\"", ",", "\"James Hoye\""}], "}"}], ",", 
+           "35"}], "}"}]],
+      Annotation[#, {{"hoyej901", "James Hoye"}, 35}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17430258603135818`, 0.3736509875789045}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"hudsm901\"", ",", "\"Marvin Hudson\""}], "}"}], ",", 
+           "32"}], "}"}]],
+      Annotation[#, {{"hudsm901", "Marvin Hudson"}, 32}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17333999001497755`, 0.3707438841737394}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"iassd901\"", ",", "\"Dan Iassogna\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"iassd901", "Dan Iassogna"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17246531483457844`, 0.376093916755603}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"johna901\"", ",", "\"Adrian Johnson\""}], "}"}], ",", 
+           "16"}], "}"}]],
+      Annotation[#, {{"johna901", "Adrian Johnson"}, 16}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1741228511108877, 0.3796119432994873}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"joycj901\"", ",", "\"Jim Joyce\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"joycj901", "Jim Joyce"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17054110198832723`, 0.3763972697596201}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"kellj901\"", ",", "\"Jeff Kellogg\""}], "}"}], ",", 
+           "35"}], "}"}]],
+      Annotation[#, {{"kellj901", "Jeff Kellogg"}, 35}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16919947349527342`, 0.3716644728969726}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"knigb901\"", ",", "\"Brian Knight\""}], "}"}], ",", 
+           "28"}], "}"}]],
+      Annotation[#, {{"knigb901", "Brian Knight"}, 28}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17740537416931523`, 0.36222671674853124`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"kulpr901\"", ",", "\"Ron Kulpa\""}], "}"}], ",", 
+           "35"}], "}"}]],
+      Annotation[#, {{"kulpr901", "Ron Kulpa"}, 35}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1662455785750379, 0.38521138622199763`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"laynj901\"", ",", "\"Jerry Layne\""}], "}"}], ",", 
+           "19"}], "}"}]],
+      Annotation[#, {{"laynj901", "Jerry Layne"}, 19}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1675903347373088, 0.3702061627133673}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"marqa901\"", ",", "\"Alfonso Marquez\""}], "}"}], ",",
+            "31"}], "}"}]],
+      Annotation[#, {{"marqa901", "Alfonso Marquez"}, 31}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16665076790994945`, 0.3804254507297529}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"marsr901\"", ",", "\"Randy Marsh\""}], "}"}], ",", 
+           "35"}], "}"}]],
+      Annotation[#, {{"marsr901", "Randy Marsh"}, 35}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.167779632721202, 0.36950473010573176`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"mcclt901\"", ",", "\"Tim McClelland\""}], "}"}], ",", 
+           "37"}], "}"}]],
+      Annotation[#, {{"mcclt901", "Tim McClelland"}, 37}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16832311270881795`, 0.3756608162402199}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"mealj901\"", ",", "\"Jerry Meals\""}], "}"}], ",", 
+           "32"}], "}"}]],
+      Annotation[#, {{"mealj901", "Jerry Meals"}, 32}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16996125956094169`, 0.37687493791596305`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"meric901\"", ",", "\"Chuck Meriwether\""}], "}"}], 
+           ",", "33"}], "}"}]],
+      Annotation[#, {{"meric901", "Chuck Meriwether"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.18358680624135887`, 0.36450720916452695`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"millb901\"", ",", "\"Bill Miller\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"millb901", "Bill Miller"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16918232164187208`, 0.3795200347486155}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"monte901\"", ",", "\"Ed Montague\""}], "}"}], ",", 
+           "31"}], "}"}]],
+      Annotation[#, {{"monte901", "Ed Montague"}, 31}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.18008474576271186`, 0.388771186440678}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"muchm901\"", ",", "\"Mike Muchlinski\""}], "}"}], ",",
+            "7"}], "}"}]],
+      Annotation[#, {{"muchm901", "Mike Muchlinski"}, 7}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17372305302000388`, 0.3632744222179064}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"nauep901\"", ",", "\"Paul Nauert\""}], "}"}], ",", 
+           "35"}], "}"}]],
+      Annotation[#, {{"nauep901", "Paul Nauert"}, 35}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.19711451758340848`, 0.3651938683498647}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"nelsj901\"", ",", "\"Jeff Nelson\""}], "}"}], ",", 
+           "20"}], "}"}]],
+      Annotation[#, {{"nelsj901", "Jeff Nelson"}, 20}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1798467003178164, 0.37334081136661057`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"onorb901\"", ",", "\"Brian O'Nora\""}], "}"}], ",", 
+           "18"}], "}"}]],
+      Annotation[#, {{"onorb901", "Brian O'Nora"}, 18}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16522018643522984`, 0.36815600557162753`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"poncl901\"", ",", "\"Larry Poncino\""}], "}"}], ",", 
+           "32"}], "}"}]],
+      Annotation[#, {{"poncl901", "Larry Poncino"}, 32}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16758947992881154`, 0.37571682815898755`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"randt901\"", ",", "\"Tony Randazzo\""}], "}"}], ",", 
+           "33"}], "}"}]],
+      Annotation[#, {{"randt901", "Tony Randazzo"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17657114127702364`, 0.37697335344394167`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"rapue901\"", ",", "\"Ed Rapuano\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"rapue901", "Ed Rapuano"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17873371705543775`, 0.36978693325254974`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"reedr901\"", ",", "\"Rick Reed\""}], "}"}], ",", 
+           "33"}], "}"}]],
+      Annotation[#, {{"reedr901", "Rick Reed"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1684878048780488, 0.37697560975609756`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"reilm901\"", ",", "\"Mike Reilly\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"reilm901", "Mike Reilly"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17547292889758642`, 0.36007827788649704`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"reint901\"", ",", "\"Travis Reininger\""}], "}"}], 
+           ",", "5"}], "}"}]],
+      Annotation[#, {{"reint901", "Travis Reininger"}, 5}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.18243518392832903`, 0.3643274059997285}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"relic901\"", ",", "\"Charlie Reliford\""}], "}"}], 
+           ",", "25"}], "}"}]],
+      Annotation[#, {{"relic901", "Charlie Reliford"}, 25}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17032024399542509`, 0.36808997331300036`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"reynj901\"", ",", "\"Jim Reynolds\""}], "}"}], ",", 
+           "35"}], "}"}]],
+      Annotation[#, {{"reynj901", "Jim Reynolds"}, 35}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17441187813343617`, 0.36935981488623215`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"rungb901\"", ",", "\"Brian Runge\""}], "}"}], ",", 
+           "36"}], "}"}]],
+      Annotation[#, {{"rungb901", "Brian Runge"}, 36}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16126013724267, 0.3877105427323768}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"schrp901\"", ",", "\"Paul Schrieber\""}], "}"}], ",", 
+           "31"}], "}"}]],
+      Annotation[#, {{"schrp901", "Paul Schrieber"}, 31}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.18571020835315383`, 0.3679954333555323}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"scotd901\"", ",", "\"Dale Scott\""}], "}"}], ",", 
+           "35"}], "}"}]],
+      Annotation[#, {{"scotd901", "Dale Scott"}, 35}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17587209302325582`, 0.38444767441860467`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"ticht901\"", ",", "\"Todd Tichenor\""}], "}"}], ",", 
+           "5"}], "}"}]],
+      Annotation[#, {{"ticht901", "Todd Tichenor"}, 5}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16677025067329604`, 0.3825357364822871}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"timmt901\"", ",", "\"Tim Timmons\""}], "}"}], ",", 
+           "33"}], "}"}]],
+      Annotation[#, {{"timmt901", "Tim Timmons"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1643822299990279, 0.37212015164771073`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"tscht901\"", ",", "\"Tim Tschida\""}], "}"}], ",", 
+           "35"}], "}"}]],
+      Annotation[#, {{"tscht901", "Tim Tschida"}, 35}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17024467985375458`, 0.370300928095997}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"vanol901\"", ",", "\"Larry Vanover\""}], "}"}], ",", 
+           "36"}], "}"}]],
+      Annotation[#, {{"vanol901", "Larry Vanover"}, 36}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16858042881820953`, 0.37221827050096534`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"wegnm901\"", ",", "\"Mark Wegner\""}], "}"}], ",", 
+           "33"}], "}"}]],
+      Annotation[#, {{"wegnm901", "Mark Wegner"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.1828536560561375, 0.3612325841553951}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"welkb901\"", ",", "\"Bill Welke\""}], "}"}], ",", 
+           "34"}], "}"}]],
+      Annotation[#, {{"welkb901", "Bill Welke"}, 34}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17291255752794216`, 0.3654174884944116}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"welkt901\"", ",", "\"Tim Welke\""}], "}"}], ",", 
+           "25"}], "}"}]],
+      Annotation[#, {{"welkt901", "Tim Welke"}, 25}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17275747508305647`, 0.37209302325581395`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"wendh902\"", ",", "\"Hunter Wendelstedt\""}], "}"}], 
+           ",", "33"}], "}"}]],
+      Annotation[#, {{"wendh902", "Hunter Wendelstedt"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16879473786032115`, 0.3758947572064229}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"westj901\"", ",", "\"Joe West\""}], "}"}], ",", 
+           "36"}], "}"}]],
+      Annotation[#, {{"westj901", "Joe West"}, 36}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17934241115908336`, 0.3688696999889295}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"wintm901\"", ",", "\"Mike Winters\""}], "}"}], ",", 
+           "32"}], "}"}]],
+      Annotation[#, {{"wintm901", "Mike Winters"}, 32}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.17527925670738073`, 0.3589101158784842}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"wolfj901\"", ",", "\"Jim Wolf\""}], "}"}], ",", 
+           "33"}], "}"}]],
+      Annotation[#, {{"wolfj901", "Jim Wolf"}, 33}, "Tooltip"]& ], 
+     TagBox[
+      TooltipBox[
+       {Opacity[0.], PointBox[{{0.16892317380352645`, 0.37059193954659947`}}]},
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{"\"younl901\"", ",", "\"Larry Young\""}], "}"}], ",", 
+           "21"}], "}"}]],
+      Annotation[#, {{"younl901", "Larry Young"}, 21}, "Tooltip"]& ]}},
+   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+   Axes->True,
+   AxesOrigin->{0.15, 0.35000000000000003`},
+   PlotRange->{{0.14477848101265822`, 0.19711451758340848`}, {
+    0.3418222402597403, 0.40783227848101267`}},
+   PlotRangeClipping->True,
+   PlotRangePadding->{
+     Scaled[0.02], 
+     Scaled[0.02]}], TraditionalForm]], "Output",
+ CellChangeTimes->{
+  3.451810166408914*^9, 3.451810859371333*^9, 3.451811325953055*^9, {
+   3.4518115607191133`*^9, 3.451811576347337*^9}},
+ CellID->1716490318]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"StrikePercentage", "[", 
+   RowBox[{"{", 
+    RowBox[{"a_", ",", "b_", ",", "c_"}], "}"}], "]"}], ":=", 
+  RowBox[{"N", "[", 
+   RowBox[{"a", "/", 
+    RowBox[{"(", 
+     RowBox[{"a", "+", "b"}], ")"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.447415449498088*^9, 3.447415485641836*^9}, {
+   3.447415591849535*^9, 3.447415630615624*^9}, {3.447415682634775*^9, 
+   3.447415704160483*^9}, {3.447415744538693*^9, 3.4474157580707006`*^9}, 
+   3.4474222585955753`*^9, {3.4475834298512793`*^9, 3.447583434257206*^9}, {
+   3.447768339309187*^9, 3.447768361531323*^9}, {3.451811321613454*^9, 
+   3.451811374081411*^9}, {3.451811472739238*^9, 3.451811475266694*^9}},
+ CellID->541619166],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], ",", 
+        RowBox[{"StrikePercentage", "[", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "3", "]"}], "]"}], "]"}]}], "}"}], "&"}], ",", 
+     "pitchdata"}], "]"}], "//", 
+   RowBox[{
+    RowBox[{"SortBy", "[", 
+     RowBox[{"#", ",", "Last"}], "]"}], "&"}]}], "//", 
+  RowBox[{
+   RowBox[{"Select", "[", 
+    RowBox[{"#", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], "\[GreaterEqual]", "10"}], "&"}]}], 
+    "]"}], "&"}]}]], "Input",
+ CellChangeTimes->{{3.451811385684176*^9, 3.451811459618887*^9}, {
+  3.451811579950835*^9, 3.451811595978701*^9}},
+ CellID->1957626976],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"\<\"Paul Schrieber\"\>", "31", "0.29375`"},
+     {"\<\"Gerry Davis\"\>", "35", "0.29497907949790797`"},
+     {"\<\"Greg Gibson\"\>", "34", "0.2990325417766051`"},
+     {"\<\"Jerry Layne\"\>", "19", "0.30146609651802075`"},
+     {"\<\"Jerry Crawford\"\>", "16", "0.3029827315541601`"},
+     {"\<\"Tim Timmons\"\>", "33", "0.3036017348670564`"},
+     {"\<\"Randy Marsh\"\>", "35", "0.3046207497820401`"},
+     {"\<\"Angel Hernandez\"\>", "36", "0.3057022175290391`"},
+     {"\<\"Tim Tschida\"\>", "35", "0.3063960862475086`"},
+     {"\<\"Dana DeMuth\"\>", "34", "0.3065308988764045`"},
+     {"\<\"Ed Montague\"\>", "31", "0.30833168414803086`"},
+     {"\<\"Tony Randazzo\"\>", "33", "0.30846223839854414`"},
+     {"\<\"Mike Reilly\"\>", "34", "0.30888928635306745`"},
+     {"\<\"Fieldin Culbreth\"\>", "34", "0.3092043092043092`"},
+     {"\<\"Jerry Meals\"\>", "32", "0.30942662779397473`"},
+     {"\<\"Larry Poncino\"\>", "32", "0.3097629570108477`"},
+     {"\<\"Joe West\"\>", "36", "0.30989167110637544`"},
+     {"\<\"Sam Holbrook\"\>", "34", "0.31007082397650715`"},
+     {"\<\"Lance Barksdale\"\>", "35", "0.3101785714285714`"},
+     {"\<\"Chris Guccione\"\>", "40", "0.3105417502701034`"},
+     {"\<\"Chuck Meriwether\"\>", "33", "0.31080835603996365`"},
+     {"\<\"Alfonso Marquez\"\>", "31", "0.31162407254740315`"},
+     {"\<\"Mark Wegner\"\>", "33", "0.3117249154453213`"},
+     {"\<\"Jeff Kellogg\"\>", "35", "0.3118104539699765`"},
+     {"\<\"Tim McClelland\"\>", "37", "0.3122734334541688`"},
+     {"\<\"Rob Drake\"\>", "35", "0.31228941301649227`"},
+     {"\<\"Brian Knight\"\>", "28", "0.31283185840707967`"},
+     {"\<\"Larry Young\"\>", "21", "0.31310183834257366`"},
+     {"\<\"Kerwin Danley\"\>", "34", "0.3139336492890995`"},
+     {"\<\"Adrian Johnson\"\>", "16", "0.31439688715953307`"},
+     {"\<\"Jim Joyce\"\>", "34", "0.31445170660856936`"},
+     {"\<\"Chad Fairchild\"\>", "28", "0.3148871527777778`"},
+     {"\<\"Larry Vanover\"\>", "36", "0.31494970516822757`"},
+     {"\<\"Derryl Cousins\"\>", "33", "0.31574923547400613`"},
+     {"\<\"CB Bucknor\"\>", "34", "0.31581798483206935`"},
+     {"\<\"Jim Reynolds\"\>", "35", "0.31633917507523457`"},
+     {"\<\"James Hoye\"\>", "35", "0.3168194640338505`"},
+     {"\<\"Hunter Wendelstedt\"\>", "33", "0.3170731707317073`"},
+     {"\<\"Mark Carlson\"\>", "34", "0.3173992673992674`"},
+     {"\<\"Marvin Hudson\"\>", "32", "0.31809736157562246`"},
+     {"\<\"Dan Iassogna\"\>", "34", "0.31859056707652783`"},
+     {"\<\"Wally Bell\"\>", "33", "0.31884875846501126`"},
+     {"\<\"Ed Rapuano\"\>", "34", "0.3189827429609446`"},
+     {"\<\"Ed Hickox\"\>", "34", "0.3199180175144401`"},
+     {"\<\"Brian Runge\"\>", "36", "0.32074468085106383`"},
+     {"\<\"Tim Welke\"\>", "25", "0.3212017586712262`"},
+     {"\<\"Eric Cooper\"\>", "32", "0.3213419563459984`"},
+     {"\<\"Tom Hallion\"\>", "33", "0.3216572504708098`"},
+     {"\<\"Adam Dowdy\"\>", "27", "0.32231404958677684`"},
+     {"\<\"Gary Darling\"\>", "33", "0.32244427363566486`"},
+     {"\<\"Marty Foster\"\>", "31", "0.322849025974026`"},
+     {"\<\"Paul Nauert\"\>", "35", "0.3235081374321881`"},
+     {"\<\"Mike Everitt\"\>", "34", "0.32471264367816094`"},
+     {"\<\"Ted Barrett\"\>", "34", "0.32509540250772306`"},
+     {"\<\"Brian O'Nora\"\>", "18", "0.3251098344035147`"},
+     {"\<\"Andy Fletcher\"\>", "18", "0.3251645940014631`"},
+     {"\<\"Bruce Froemming\"\>", "33", "0.3252967359050445`"},
+     {"\<\"Rick Reed\"\>", "33", "0.32584683357879235`"},
+     {"\<\"Mike Winters\"\>", "32", "0.327140549273021`"},
+     {"\<\"Brian Gorman\"\>", "34", "0.32794540229885055`"},
+     {"\<\"Bruce Dreckman\"\>", "30", "0.3280196198651134`"},
+     {"\<\"Jim Wolf\"\>", "33", "0.3281219464529998`"},
+     {"\<\"Phil Cuzzi\"\>", "35", "0.3282023089609676`"},
+     {"\<\"Bob Davidson\"\>", "34", "0.32855067199418814`"},
+     {"\<\"Ron Kulpa\"\>", "35", "0.32875245404247727`"},
+     {"\<\"Gary Cederstrom\"\>", "33", "0.33234946871310506`"},
+     {"\<\"Charlie Reliford\"\>", "25", "0.3336643495531281`"},
+     {"\<\"Laz Diaz\"\>", "36", "0.3349532037437005`"},
+     {"\<\"Bill Miller\"\>", "34", "0.334954954954955`"},
+     {"\<\"Dale Scott\"\>", "35", "0.3353951890034364`"},
+     {"\<\"Bill Welke\"\>", "34", "0.33607476635514016`"},
+     {"\<\"Paul Emmel\"\>", "29", "0.33663366336633666`"},
+     {"\<\"John Hirschbeck\"\>", "26", "0.34180522565320665`"},
+     {"\<\"Jeff Nelson\"\>", "20", "0.35054522129570237`"},
+     {"\<\"Doug Eddings\"\>", "34", "0.36120591581342437`"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}], 
+  TraditionalForm]], "Output",
+ CellChangeTimes->{{3.4518114634755507`*^9, 3.451811478532897*^9}, {
+  3.451811582919653*^9, 3.4518115972660007`*^9}},
+ CellID->1715581849]
+}, Open  ]]
+},
+WindowSize->{640, 750},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 345, 7, 41, "Text",
+ CellID->1141514380],
+Cell[CellGroupData[{
+Cell[915, 31, 313, 7, 27, "Input",
+ CellID->1565452218],
+Cell[1231, 40, 183, 6, 27, "Output",
+ CellID->1960766009]
+}, Open  ]],
+Cell[1429, 49, 218, 5, 26, "Text",
+ CellID->2103491200],
+Cell[CellGroupData[{
+Cell[1672, 58, 262, 6, 27, "Input",
+ CellID->1457750048],
+Cell[1937, 66, 224, 6, 27, "Output",
+ CellID->1982128421]
+}, Open  ]],
+Cell[2176, 75, 313, 7, 26, "Text",
+ CellID->1500801486],
+Cell[CellGroupData[{
+Cell[2514, 86, 406, 13, 27, "Input",
+ CellID->1866039483],
+Cell[2923, 101, 2487, 40, 163, "Output",
+ CellID->626848919]
+}, Open  ]],
+Cell[5425, 144, 180, 4, 26, "Text",
+ CellID->654308205],
+Cell[5608, 150, 515, 16, 43, "Input",
+ CellID->2042493098],
+Cell[6126, 168, 364, 7, 56, "Text",
+ CellID->1841728795],
+Cell[CellGroupData[{
+Cell[6515, 179, 912, 25, 58, "Input",
+ CellID->239847568],
+Cell[7430, 206, 15899, 442, 1453, "Output",
+ CellID->1513371398]
+}, Closed]],
+Cell[23344, 651, 872, 24, 52, "Input",
+ CellID->115703951],
+Cell[CellGroupData[{
+Cell[24241, 679, 717, 20, 58, "Input",
+ CellID->1163603922],
+Cell[24961, 701, 16707, 489, 1458, "Output",
+ CellID->118960907]
+}, Open  ]],
+Cell[41683, 1193, 449, 13, 27, "Input",
+ CellID->1705027472],
+Cell[CellGroupData[{
+Cell[42157, 1210, 940, 23, 43, "Input",
+ CellID->374936336],
+Cell[43100, 1235, 32088, 812, 238, "Output",
+ CellID->1716490318]
+}, Open  ]],
+Cell[75203, 2050, 714, 15, 27, "Input",
+ CellID->541619166],
+Cell[CellGroupData[{
+Cell[75942, 2069, 930, 30, 43, "Input",
+ CellID->1957626976],
+Cell[76875, 2101, 5174, 92, 1288, "Output",
+ CellID->1715581849]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
